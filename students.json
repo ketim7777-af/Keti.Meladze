@@ -1,0 +1,65 @@
+[
+    {
+        "name": "Keti",
+        "roll_number": 1,
+        "grade": "A",
+        "scholarship_percent": 0.0,
+        "course": "Python"
+    },
+    {
+        "name": "Irakli",
+        "roll_number": 2,
+        "grade": "B",
+        "scholarship_percent": 25.0,
+        "course": "Java"
+    },
+    {
+        "name": "Lela",
+        "roll_number": 3,
+        "grade": "C",
+        "scholarship_percent": 50.0,
+        "course": "Python"
+    },
+    {
+        "name": "Niko",
+        "roll_number": 4,
+        "grade": "D",
+        "scholarship_percent": 100.0,
+        "course": "Java"
+    },
+    {
+        "name": "Liko",
+        "roll_number": 8,
+        "grade": "C",
+        "scholarship_percent": 75.0,
+        "course": "Python"
+    },
+    {
+        "name": "Saba",
+        "roll_number": 11,
+        "grade": "F",
+        "scholarship_percent": 0.0,
+        "course": "Python"
+    },
+    {
+        "name": "Nutsa",
+        "roll_number": 12,
+        "grade": "A",
+        "scholarship_percent": 100.0,
+        "course": "Python"
+    },
+    {
+        "name": "Giorgi",
+        "roll_number": 13,
+        "grade": "D",
+        "scholarship_percent": 100.0,
+        "course": "Python"
+    },
+    {
+        "name": "Nato",
+        "roll_number": 6,
+        "grade": "D",
+        "scholarship_percent": 25,
+        "course": "Python"
+    }
+]
