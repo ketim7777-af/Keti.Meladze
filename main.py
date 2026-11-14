@@ -1,9 +1,11 @@
 from models import Students
 from storage import load_students, save_students
-from operations import add_student, show_all_students, search_student, update_grade
+from operations import StudentManagement
+
 
 def main():
     students = load_students()
+    student_management = StudentManagement(students)
 
     while True:
         print(f"\n{Students.university_name}")
@@ -19,19 +21,20 @@ def main():
         print("-" * 20)
 
         if choice == "1":
-            add_student(students)
+            student_management.add_student()
         elif choice == "2":
-            show_all_students(students)
+            student_management.show_all_students()
         elif choice == "3":
-            search_student(students)
+            student_management.search_student()
         elif choice == "4":
-            update_grade(students)
+            student_management.update_grade()
         elif choice == "5":
             save_students(students)
             print("Goodbye!")
             break
         else:
             print("Please choose a number from 1 to 5.")
+
 
 if __name__ == "__main__":
     main()
