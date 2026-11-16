@@ -1,10 +1,10 @@
 from models import PythonCourseStudent, JavaCourseStudent
-from storage import save_students
 
 
 class StudentManagement:
-    def __init__(self, students):
+    def __init__(self, students, storage):
         self.students = students
+        self.storage = storage
 
     def find_student(self, roll_number):
         for student in self.students:
@@ -84,8 +84,7 @@ class StudentManagement:
             if choice == "1":
                 return "Python"
 
-            else:
-                return "Java"
+            return "Java"
 
     def add_student(self):
         name = self.get_name()
@@ -95,8 +94,8 @@ class StudentManagement:
 
             if self.find_student(roll_number) is None:
                 break
-            else:
-                print("This roll number already exists. Enter a different number.")
+
+            print("This roll number already exists. Enter a different number.")
 
         grade = self.get_grade()
         scholarship = self.get_scholarship_percent()
@@ -108,7 +107,7 @@ class StudentManagement:
             student = JavaCourseStudent(name, roll_number, grade, scholarship)
 
         self.students.append(student)
-        save_students(self.students)
+        self.storage.save_students(self.students)
         print("Student added successfully.")
 
     def show_all_students(self):
@@ -134,7 +133,7 @@ class StudentManagement:
 
         if student is not None:
             student.grade = self.get_grade()
-            save_students(self.students)
+            self.storage.save_students(self.students)
             print("Grade updated successfully.")
         else:
             print("Student not found.")
