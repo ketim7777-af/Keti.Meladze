@@ -2,7 +2,6 @@ from models import Students
 from storage import StudentStorage
 from operations import StudentManagement
 
-
 class StudentManagementApp:
     def __init__(self):
         self.storage = StudentStorage()
