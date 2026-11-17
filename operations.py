@@ -1,16 +1,18 @@
 from models import PythonCourseStudent, JavaCourseStudent
 
-
+# შევქმენი კლასი, რომელსაც პარამეტრებად გავატანე students და storage.
 class StudentManagement:
     def __init__(self, students, storage):
         self.students = students
         self.storage = storage
 
+    # მეთოდი – სტუდენტის ობიექტის მოძებვნა ნომრით (add, search, update)
     def find_student(self, roll_number):
         for student in self.students:
             if student.roll_number == roll_number:
                 return student
 
+    # მეთოდი – ახალი სტუდენტის რეგისტრაციისთვის, შემოწმება.
     def get_name(self):
         while True:
             name = input("Enter student name: ").strip().capitalize()
@@ -25,6 +27,7 @@ class StudentManagement:
 
             return name
 
+    # მეთოდი – ახალი სტუდენტის რეგისტრაციისთვის, შემოწმება. 
     def get_roll_number(self):
         while True:
             roll_number = input("Enter roll number: ").strip()
@@ -45,6 +48,7 @@ class StudentManagement:
 
             return roll_number
 
+    # მეთოდი – ახალი სტუდენტის რეგისტრაციისთვის, შემოწმება. 
     def get_grade(self):
         while True:
             grade = input("Enter grade (A-F): ").strip().upper()
@@ -54,11 +58,12 @@ class StudentManagement:
                 continue
 
             return grade
-
+        
+    # მეთოდი – ახალი სტუდენტის რეგისტრაციისთვის, შემოწმება. 
     def get_scholarship_percent(self):
         while True:
             try:
-                scholarship = int(input("Enter scholarship percentage: ").strip())
+                scholarship = float(input("Enter scholarship percentage: ").strip())
             except ValueError:
                 print("Please enter a number.")
                 continue
@@ -69,6 +74,7 @@ class StudentManagement:
 
             return scholarship
 
+    # მეთოდი – ახალი სტუდენტის რეგისტრაციისთვის, შემოწმება.
     def get_course(self):
         while True:
             print("Choose a course:")
@@ -86,6 +92,7 @@ class StudentManagement:
 
             return "Java"
 
+    # მეთოდი – ახალი სტუდენტის დამატება.
     def add_student(self):
         name = self.get_name()
 
@@ -94,8 +101,8 @@ class StudentManagement:
 
             if self.find_student(roll_number) is None:
                 break
-
-            print("This roll number already exists. Enter a different number.")
+            else:
+                print("This roll number already exists. Enter a different number.")
 
         grade = self.get_grade()
         scholarship = self.get_scholarship_percent()
@@ -110,6 +117,7 @@ class StudentManagement:
         self.storage.save_students(self.students)
         print("Student added successfully.")
 
+    # მეთოდი – ყველა სტუდენტის ჩვენება.
     def show_all_students(self):
         if len(self.students) == 0:
             print("There are no students.")
@@ -118,6 +126,7 @@ class StudentManagement:
         for student in self.students:
             student.display()
 
+    # მეთოდი – სტუდენტის მოძებვნა ნომრით და ჩვენება.
     def search_student(self):
         roll_number = self.get_roll_number()
         student = self.find_student(roll_number)
@@ -127,6 +136,7 @@ class StudentManagement:
         else:
             print("Student not found.")
 
+    # მეთოდი – შეფასების განახლება.
     def update_grade(self):
         roll_number = self.get_roll_number()
         student = self.find_student(roll_number)

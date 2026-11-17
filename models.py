@@ -1,3 +1,5 @@
+# შევქმედი მშობელი კლასი, რომელსაც აქვს კლასის პარამეტრი, ასევე ობიექტის პარამეტრები.
+
 class Students:
     university_name = "IT Step"
 
@@ -7,10 +9,11 @@ class Students:
         self.grade = grade
         self.scholarship_percent = scholarship_percent
 
+    # შემოვიტანე დეკორატორები, რომელიც ინკაფსულაციისთვის გამოიყენება, მონაცემებზე წვდომისა და შეცვლისთვის.
     @property
     def grade(self):
         return self._grade
-
+    
     @grade.setter
     def grade(self, value):
         if isinstance(value, str):
@@ -20,7 +23,7 @@ class Students:
             self._grade = value
         else:
             raise ValueError("Grade must be one letter from A to F.")
-
+    
     def display(self):
         print(f"University: {Students.university_name}")
         print(f"Course: {self.get_course_name()}")
@@ -30,7 +33,7 @@ class Students:
         print(f"Scholarship: {self.scholarship_percent}%")
         print("=" * 20)
 
-
+# შევქმენი შვილობილი კლასები. ნაჩვენებია პოლიმორფიზმი.
 class PythonCourseStudent(Students):
     def __init__(self, name, roll_number, grade, scholarship_percent):
         super().__init__(name, roll_number, grade, scholarship_percent)

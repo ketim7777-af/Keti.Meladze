@@ -2,16 +2,20 @@ from models import Students
 from storage import StudentStorage
 from operations import StudentManagement
 
+# შევქმენი კლასი, რომლისთვისაც იქმნება StudenStorage კლასის ობიექტი, ტვირთავს სტუდენტების სიას 
+# და იქმნება StudentManagement კლასის ობიექტი.
 class StudentManagementApp:
     def __init__(self):
-        self.storage = StudentStorage()
-        self.students = self.storage.load_students()
+        self.storage = StudentStorage() 
+        self.students = self.storage.load_students() 
         self.student_management = StudentManagement(self.students, self.storage)
 
+    # აპლიკაციის მენიუ.
     def run(self):
         while True:
             print(f"\n{Students.university_name}")
             print("Student Management System")
+            print("-" * 20)
             print("1. Add new student")
             print("2. View all students")
             print("3. Search student by roll number")
@@ -37,7 +41,6 @@ class StudentManagementApp:
             else:
                 print("Please choose a number from 1 to 5.")
 
-
-if __name__ == "__main__":
+if __name__ == "__main__": 
     app = StudentManagementApp()
     app.run()

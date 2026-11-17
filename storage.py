@@ -1,11 +1,12 @@
 import json
 from models import PythonCourseStudent, JavaCourseStudent
 
-
+# შევქმენი კლასი, რომელსაც პარამეტრად გავუწერე filename და გავატანე კონკრეტული სახელიც.
 class StudentStorage:
     def __init__(self, filename="students.json"):
         self.filename = filename
-
+    
+    # შევქმენი models.py-ს 2 ქვეკლასის 4 ობიექტი.
     def create_initial_students(self):
         return [
             PythonCourseStudent("Keti", 1, "A", 0),
@@ -14,6 +15,7 @@ class StudentStorage:
             JavaCourseStudent("Niko", 4, "D", 100)
         ]
 
+    # გამოიყენება ჯეისონიდან მონაცემების წასაკითხად.
     def load_students(self):
         try:
             with open(self.filename, "r", encoding="utf-8") as file:
@@ -26,6 +28,7 @@ class StudentStorage:
             print("JSON file has an incorrect format.")
             return self.create_initial_students()
 
+        # ჯერ ცარიელი ლისტია, შემდეგ ამატებს.
         students_list = []
 
         for student_data in students_data:
@@ -44,6 +47,7 @@ class StudentStorage:
 
         return students_list
 
+    # ეს მეთოდი ახალი სტუდენტების შესანახად გამოიყენება.
     def save_students(self, students):
         students_data = []
 
@@ -57,5 +61,6 @@ class StudentStorage:
             }
             students_data.append(student_data)
 
+        # ჯეისონ ფაილში ვწერ ახალ stuents_data ლისტს.   
         with open(self.filename, "w", encoding="utf-8") as file:
             json.dump(students_data, file, indent=4, ensure_ascii=False)
