@@ -23,7 +23,7 @@
     {
         "name": "Niko",
         "roll_number": 4,
-        "grade": "B",
+        "grade": "D",
         "scholarship_percent": 100.0,
         "course": "Java"
     },
@@ -59,14 +59,6 @@
         "name": "Nato",
         "roll_number": 6,
         "grade": "D",
-        "scholarship_percent": 25.0,
-        "course": "Python"
-    },
-    {
-        "name": "Tea",
-        "roll_number": 18,
-        "grade": "A",
-        "scholarship_percent": 100.0,
+        "scholarship_percent": 25,
         "course": "Python"
     }
-]
