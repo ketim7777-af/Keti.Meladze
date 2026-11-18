@@ -47,7 +47,7 @@ class StudentStorage:
 
         return students_list
 
-    # ეს მეთოდი ახალი სტუდენტების შესანახად გამოიყენება.
+    # ეს მეთოდი სტუდენტების შესანახად გამოიყენება.
     def save_students(self, students):
         students_data = []
 
